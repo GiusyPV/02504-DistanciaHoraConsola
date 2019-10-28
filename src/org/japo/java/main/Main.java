@@ -19,65 +19,62 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.Scanner;
 
-
 /**
  *
  * @author Josefina Pugliese Vazquez
  */
 public class Main {
-    
+
     public static final Scanner SCN
             = new Scanner(System.in, "Windows-1252")
                     .useLocale(Locale.ENGLISH).useDelimiter("\\s+");
 
     public static void main(String[] args) {
-        
+
         Calendar cal = Calendar.getInstance();
-        
+
         try {
             System.out.println("Distancia entre Horas");
             System.out.println("=====================");
-            
+
             System.out.print("Hora inicio ......: ");
             int hEnt = SCN.nextInt();
             SCN.nextLine();
             System.out.print("Minuto inicio ....: ");
-             int mEnt = SCN.nextInt();
+            int mEnt = SCN.nextInt();
             SCN.nextLine();
             System.out.print("Segundo inicio ...: ");
             int sEnt = SCN.nextInt();
             SCN.nextLine();
-            
+
             System.out.println("---");
-            
+
             int hAct = cal.get(Calendar.HOUR_OF_DAY);
             int mAct = cal.get(Calendar.MINUTE);
             int sAct = cal.get(Calendar.SECOND);
-            
+
             //Tiempos en segundos
             int tiempoEnt = hEnt * 3600 + mEnt * 60 + sEnt;
             int tiempoAct = hAct * 3600 + mAct * 60 + sAct;
-            
+
             //Segundos
             int sDis = tiempoAct - tiempoEnt;
-            
+
             //Minutos
             int mDis = sDis / 60;
-            
+
             //Horas
             int hDis = mDis / 60;
             mDis = mDis % 60;
             sDis = sDis % 60;
-            
+
             System.out.printf("%s%02d:%02d:%02d%n", "Hora actual ......: ", hAct, mAct, sAct);
             System.out.printf("%s%02d:%02d:%02d%n", "Hora inicio ......: ", hEnt, mEnt, sEnt);
             System.out.printf("%s%02d:%02d:%02d%n", "Tiempo de clase ..: ", hDis, mDis, sDis);
-            
-            }
-        catch (Exception e) {
-            System.out.println("Error: Entrada incorrecta");                
-                }
-            
-                   
+
+        } catch (Exception e) {
+            System.out.println("Error: Entrada incorrecta");
+        }
+
     }
 }
